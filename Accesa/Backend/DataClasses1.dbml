@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Quests" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=desktop-6qfn9qv;Initial Catalog=Quests;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QuestsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Challenge" Member="Challenges">
+    <Type Name="Challenge">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Creator" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Reward" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Challenge_Participant" Member="Participants" ThisKey="Id" OtherKey="ChallengeId" Type="Participant" />
+      <Association Name="User_Challenge" Member="User" ThisKey="Creator" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Participant" Member="Participants">
+    <Type Name="Participant">
+      <Column Name="ChallengeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Challenge_Participant" Member="Challenge" ThisKey="ChallengeId" OtherKey="Id" Type="Challenge" IsForeignKey="true" />
+      <Association Name="User_Participant" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Password" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Tokens" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Challenge" Member="Challenges" ThisKey="Id" OtherKey="Creator" Type="Challenge" />
+      <Association Name="User_Participant" Member="Participants" ThisKey="Id" OtherKey="UserId" Type="Participant" />
+    </Type>
+  </Table>
+</Database>
