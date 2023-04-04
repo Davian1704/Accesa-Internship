@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="updateUserTokens">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tokens" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserTokensResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateChallengeReward">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateChallengeRewardResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="addUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tokens" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="addChallenge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="creator" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reward" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addChallengeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="deleteChallenge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteChallengeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="addParticipant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="challengeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addParticipantResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUserbyCredentials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserbyCredentialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserbyCredentialsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserbyId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserbyIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserbyIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHostedChallenges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHostedChallengesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHostedChallengesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActiveChallenges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActiveChallengesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getActiveChallengesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMaxChallengeId">
+        <s:complexType />
+      </s:element>
+      <s:element name="getMaxChallengeIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getMaxChallengeIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="updateUserTokensSoapIn">
+    <wsdl:part name="parameters" element="tns:updateUserTokens" />
+  </wsdl:message>
+  <wsdl:message name="updateUserTokensSoapOut">
+    <wsdl:part name="parameters" element="tns:updateUserTokensResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateChallengeRewardSoapIn">
+    <wsdl:part name="parameters" element="tns:updateChallengeReward" />
+  </wsdl:message>
+  <wsdl:message name="updateChallengeRewardSoapOut">
+    <wsdl:part name="parameters" element="tns:updateChallengeRewardResponse" />
+  </wsdl:message>
+  <wsdl:message name="addUserSoapIn">
+    <wsdl:part name="parameters" element="tns:addUser" />
+  </wsdl:message>
+  <wsdl:message name="addUserSoapOut">
+    <wsdl:part name="parameters" element="tns:addUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="addChallengeSoapIn">
+    <wsdl:part name="parameters" element="tns:addChallenge" />
+  </wsdl:message>
+  <wsdl:message name="addChallengeSoapOut">
+    <wsdl:part name="parameters" element="tns:addChallengeResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteChallengeSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteChallenge" />
+  </wsdl:message>
+  <wsdl:message name="deleteChallengeSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteChallengeResponse" />
+  </wsdl:message>
+  <wsdl:message name="addParticipantSoapIn">
+    <wsdl:part name="parameters" element="tns:addParticipant" />
+  </wsdl:message>
+  <wsdl:message name="addParticipantSoapOut">
+    <wsdl:part name="parameters" element="tns:addParticipantResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserbyCredentialsSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserbyCredentials" />
+  </wsdl:message>
+  <wsdl:message name="getUserbyCredentialsSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserbyCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserbyIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserbyId" />
+  </wsdl:message>
+  <wsdl:message name="getUserbyIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserbyIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHostedChallengesSoapIn">
+    <wsdl:part name="parameters" element="tns:getHostedChallenges" />
+  </wsdl:message>
+  <wsdl:message name="getHostedChallengesSoapOut">
+    <wsdl:part name="parameters" element="tns:getHostedChallengesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getActiveChallengesSoapIn">
+    <wsdl:part name="parameters" element="tns:getActiveChallenges" />
+  </wsdl:message>
+  <wsdl:message name="getActiveChallengesSoapOut">
+    <wsdl:part name="parameters" element="tns:getActiveChallengesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMaxChallengeIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getMaxChallengeId" />
+  </wsdl:message>
+  <wsdl:message name="getMaxChallengeIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getMaxChallengeIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="updateUserTokens">
+      <wsdl:input message="tns:updateUserTokensSoapIn" />
+      <wsdl:output message="tns:updateUserTokensSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateChallengeReward">
+      <wsdl:input message="tns:updateChallengeRewardSoapIn" />
+      <wsdl:output message="tns:updateChallengeRewardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input message="tns:addUserSoapIn" />
+      <wsdl:output message="tns:addUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addChallenge">
+      <wsdl:input message="tns:addChallengeSoapIn" />
+      <wsdl:output message="tns:addChallengeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteChallenge">
+      <wsdl:input message="tns:deleteChallengeSoapIn" />
+      <wsdl:output message="tns:deleteChallengeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addParticipant">
+      <wsdl:input message="tns:addParticipantSoapIn" />
+      <wsdl:output message="tns:addParticipantSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserbyCredentials">
+      <wsdl:input message="tns:getUserbyCredentialsSoapIn" />
+      <wsdl:output message="tns:getUserbyCredentialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserbyId">
+      <wsdl:input message="tns:getUserbyIdSoapIn" />
+      <wsdl:output message="tns:getUserbyIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHostedChallenges">
+      <wsdl:input message="tns:getHostedChallengesSoapIn" />
+      <wsdl:output message="tns:getHostedChallengesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActiveChallenges">
+      <wsdl:input message="tns:getActiveChallengesSoapIn" />
+      <wsdl:output message="tns:getActiveChallengesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMaxChallengeId">
+      <wsdl:input message="tns:getMaxChallengeIdSoapIn" />
+      <wsdl:output message="tns:getMaxChallengeIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateUserTokens">
+      <soap:operation soapAction="http://tempuri.org/updateUserTokens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateChallengeReward">
+      <soap:operation soapAction="http://tempuri.org/updateChallengeReward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap:operation soapAction="http://tempuri.org/addUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addChallenge">
+      <soap:operation soapAction="http://tempuri.org/addChallenge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteChallenge">
+      <soap:operation soapAction="http://tempuri.org/deleteChallenge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addParticipant">
+      <soap:operation soapAction="http://tempuri.org/addParticipant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserbyCredentials">
+      <soap:operation soapAction="http://tempuri.org/getUserbyCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserbyId">
+      <soap:operation soapAction="http://tempuri.org/getUserbyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHostedChallenges">
+      <soap:operation soapAction="http://tempuri.org/getHostedChallenges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveChallenges">
+      <soap:operation soapAction="http://tempuri.org/getActiveChallenges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxChallengeId">
+      <soap:operation soapAction="http://tempuri.org/getMaxChallengeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateUserTokens">
+      <soap12:operation soapAction="http://tempuri.org/updateUserTokens" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateChallengeReward">
+      <soap12:operation soapAction="http://tempuri.org/updateChallengeReward" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap12:operation soapAction="http://tempuri.org/addUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addChallenge">
+      <soap12:operation soapAction="http://tempuri.org/addChallenge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteChallenge">
+      <soap12:operation soapAction="http://tempuri.org/deleteChallenge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addParticipant">
+      <soap12:operation soapAction="http://tempuri.org/addParticipant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserbyCredentials">
+      <soap12:operation soapAction="http://tempuri.org/getUserbyCredentials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserbyId">
+      <soap12:operation soapAction="http://tempuri.org/getUserbyId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHostedChallenges">
+      <soap12:operation soapAction="http://tempuri.org/getHostedChallenges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveChallenges">
+      <soap12:operation soapAction="http://tempuri.org/getActiveChallenges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxChallengeId">
+      <soap12:operation soapAction="http://tempuri.org/getMaxChallengeId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44386/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44386/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

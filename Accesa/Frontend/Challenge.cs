@@ -12,26 +12,29 @@ namespace Frontend
 {
     public partial class Challenge : Form
     {
+        Frontend.ServiceReference1.WebService1SoapClient service = new Frontend.ServiceReference1.WebService1SoapClient();
         int ChallengeId, PlayerId;
-        public Challenge(int ChallengeId,int PlayerId)
+        string description;
+        public Challenge(int ChallengeId,string description ,int PlayerId)
         {
             this.ChallengeId = ChallengeId;
             this.PlayerId = PlayerId;
+            this.description = description;
             InitializeComponent();
         }
 
         private void Challenge_Load(object sender, EventArgs e)
         {
+            
             //get info from challenges
-            string title=" ", description=" ";
-            titleTb.Text = title;
             descriptionTb.Text = description;
         }
 
         private void completeBtn_Click(object sender, EventArgs e)
         {
-            //update method to add to participants
-            //update method to remove from budget of challenge
+            service.addParticipant(ChallengeId, PlayerId);
+            service.updateChallengeReward(ChallengeId);
+            this.Close();
         }
     }
 }

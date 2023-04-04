@@ -1,0 +1,13 @@
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\bin\Debug\Frontend.exe.config
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\bin\Debug\Frontend.exe
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\bin\Debug\Frontend.pdb
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.csproj.AssemblyReference.cache
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.Add.resources
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.Challenge.resources
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.Login.resources
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.PersonalPage.resources
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.Properties.Resources.resources
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.csproj.GenerateResource.cache
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.csproj.CoreCompileInputs.cache
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.exe
+C:\Users\Davian\Desktop\Programe\GitHub\Accesa-Internship\Accesa\Frontend\obj\Debug\Frontend.pdb

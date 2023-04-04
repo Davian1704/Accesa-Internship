@@ -12,6 +12,7 @@ namespace Frontend
 {
     public partial class Login : Form
     {
+        Frontend.ServiceReference1.WebService1SoapClient service = new Frontend.ServiceReference1.WebService1SoapClient();
         public Login()
         {
             InitializeComponent();
@@ -23,11 +24,13 @@ namespace Frontend
             string Name, Password;
             Name = userTB.Text;
             Password = passTB.Text;
-            //conditie corect din database
-            //tokens si id din database
-            //message box cu eroare daca nu e bine
-            //in backend return -1 sau ceva daca null si un array or something with id,Name si tokens daca nu
-            new PersonalPage(id, Name, tokens);
+            string result = service.getUserbyCredentials(Name, Password);
+            id = int.Parse(result.Split(';')[0]);
+            tokens = int.Parse(result.Split(';')[2]);
+            PersonalPage page = new PersonalPage(id, Name, tokens);
+            this.Hide();
+            page.ShowDialog();
+            this.Close();
         }
     }
 }

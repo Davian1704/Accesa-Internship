@@ -60,7 +60,7 @@ namespace Frontend
             // usernameL
             // 
             this.usernameL.AutoSize = true;
-            this.usernameL.Location = new System.Drawing.Point(684, 9);
+            this.usernameL.Location = new System.Drawing.Point(656, 9);
             this.usernameL.Name = "usernameL";
             this.usernameL.Size = new System.Drawing.Size(0, 13);
             this.usernameL.TabIndex = 4;
@@ -68,7 +68,7 @@ namespace Frontend
             // tokensL
             // 
             this.tokensL.AutoSize = true;
-            this.tokensL.Location = new System.Drawing.Point(670, 22);
+            this.tokensL.Location = new System.Drawing.Point(656, 22);
             this.tokensL.Name = "tokensL";
             this.tokensL.Size = new System.Drawing.Size(49, 13);
             this.tokensL.TabIndex = 5;
@@ -99,7 +99,6 @@ namespace Frontend
             this.hostedCh.Name = "hostedCh";
             this.hostedCh.Size = new System.Drawing.Size(120, 329);
             this.hostedCh.TabIndex = 8;
-            this.hostedCh.SelectedIndexChanged += new System.EventHandler(this.hostedCh_SelectedIndexChanged);
             // 
             // otherCh
             // 

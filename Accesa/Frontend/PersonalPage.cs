@@ -12,52 +12,67 @@ namespace Frontend
 {
     public partial class PersonalPage : Form
     {
-        string Name;
+        Frontend.ServiceReference1.WebService1SoapClient service = new Frontend.ServiceReference1.WebService1SoapClient();
+        string UserName;
         int id,tokens;
-        String[] hosted = { }, active = { };
-        public PersonalPage(int id, string Name, int tokens)
+        String[] hosted , active;
+        public PersonalPage(int id, string UserName, int tokens)
         {
             this.id = id;
-            this.Name = Name;
+            this.UserName = UserName;
             this.tokens = tokens;
             InitializeComponent();
         }
 
         private void otherCh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            new Challenge(int.Parse(active[otherCh.SelectedIndex].Split(';')[0]), id);
-        }
+            Challenge chal = new Challenge(int.Parse(active[otherCh.SelectedIndex].Split(';')[0]),active[otherCh.SelectedIndex].Split(';')[2], id);
+            chal.ShowDialog();
 
-        
-
-        private void hostedCh_SelectedIndexChanged(object sender, EventArgs e)
-        {   
-            //make participants table to have name and title as id's for simplicity
-            new AdminChallenge(int.Parse(hosted[hostedCh.SelectedIndex].Split(';')[0]),id);
         }
 
         private void PersonalPage_Load(object sender, EventArgs e)
         {
-            
-            //populare listboxuri cu titlu si total tokenuri ramase
-            //functii in backend care returneaza un array cu elementele din tabel separate prin punct si virgula
             int i;
-            
-            for (i = 0; i < hosted.Length; i++)
+            tokensVal.Text = tokens.ToString();
+            usernameL.Text = UserName;
+            hosted = service.getHostedChallenges(id).Split(',');
+            if (hosted[0].Split(';').Length > 1)
             {
-                hostedCh.Items.Add(hosted[i].Split(';')[1] + hosted[i].Split(';')[2]);
-            }
 
-            for (i = 0; i < active.Length; i++)
+                for (i = 0; i < hosted.Length; i++)
+                {
+                    hostedCh.Items.Add(hosted[i].Split(';')[2]);
+                }
+            }
+            Console.WriteLine(id);
+            active = service.getActiveChallenges(id).Split(',');
+            if (active[0].Split(';').Length > 1)
             {
-                otherCh.Items.Add(active[i].Split(';')[1] + active[i].Split(';')[2]);
+
+                
+                for (i = 0; i < active.Length; i++)
+                {
+                    otherCh.Items.Add(active[i].Split(';')[2]);
+                }
             }
         }
 
         private void addNew_Click(object sender, EventArgs e)
         {
-            new Add(id, tokens);
-            this.Hide();
+            Add add = new Add(id, tokens);
+            add.ShowDialog();
+            hostedCh.Items.Clear();
+            hosted = service.getHostedChallenges(id).Split(',');
+            int i;
+            if (hosted[0].Split(';').Length > 1)
+            {
+
+                for (i = 0; i < hosted.Length; i++)
+                {
+                    hostedCh.Items.Add(hosted[i].Split(';')[2]);
+                }
+            }
         }
     }
 }

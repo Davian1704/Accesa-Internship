@@ -31,7 +31,6 @@ namespace Frontend
         {
             this.completeBtn = new System.Windows.Forms.Button();
             this.descriptionTb = new System.Windows.Forms.TextBox();
-            this.titleTb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // completeBtn
@@ -46,18 +45,13 @@ namespace Frontend
             // 
             // descriptionTb
             // 
+            this.descriptionTb.Enabled = false;
             this.descriptionTb.Location = new System.Drawing.Point(235, 108);
             this.descriptionTb.Multiline = true;
             this.descriptionTb.Name = "descriptionTb";
+            this.descriptionTb.ReadOnly = true;
             this.descriptionTb.Size = new System.Drawing.Size(296, 215);
             this.descriptionTb.TabIndex = 4;
-            // 
-            // titleTb
-            // 
-            this.titleTb.Location = new System.Drawing.Point(235, 37);
-            this.titleTb.Name = "titleTb";
-            this.titleTb.Size = new System.Drawing.Size(296, 20);
-            this.titleTb.TabIndex = 3;
             // 
             // Challenge
             // 
@@ -66,7 +60,6 @@ namespace Frontend
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.completeBtn);
             this.Controls.Add(this.descriptionTb);
-            this.Controls.Add(this.titleTb);
             this.Name = "Challenge";
             this.Text = "Challenge";
             this.Load += new System.EventHandler(this.Challenge_Load);
@@ -79,6 +72,5 @@ namespace Frontend
 
         private System.Windows.Forms.Button completeBtn;
         private System.Windows.Forms.TextBox descriptionTb;
-        private System.Windows.Forms.TextBox titleTb;
     }
 }
