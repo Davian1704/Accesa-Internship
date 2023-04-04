@@ -30,40 +30,45 @@ namespace Frontend
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.titleTb = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.descriptionTb = new System.Windows.Forms.TextBox();
+            this.tokenTb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.maxTkn = new System.Windows.Forms.Label();
+            this.titleL = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // titleTb
             // 
-            this.textBox1.Location = new System.Drawing.Point(82, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(371, 20);
-            this.textBox1.TabIndex = 0;
+            this.titleTb.Location = new System.Drawing.Point(82, 67);
+            this.titleTb.Name = "titleTb";
+            this.titleTb.Size = new System.Drawing.Size(371, 20);
+            this.titleTb.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // textBox2
+            // descriptionTb
             // 
-            this.textBox2.Location = new System.Drawing.Point(82, 115);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(371, 187);
-            this.textBox2.TabIndex = 2;
+            this.descriptionTb.Location = new System.Drawing.Point(82, 115);
+            this.descriptionTb.Multiline = true;
+            this.descriptionTb.Name = "descriptionTb";
+            this.descriptionTb.Size = new System.Drawing.Size(371, 187);
+            this.descriptionTb.TabIndex = 2;
             // 
-            // textBox3
+            // tokenTb
             // 
-            this.textBox3.Location = new System.Drawing.Point(82, 341);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(371, 20);
-            this.textBox3.TabIndex = 3;
+            this.tokenTb.Location = new System.Drawing.Point(82, 319);
+            this.tokenTb.Name = "tokenTb";
+            this.tokenTb.Size = new System.Drawing.Size(371, 20);
+            this.tokenTb.TabIndex = 3;
             // 
             // label1
             // 
@@ -83,16 +88,67 @@ namespace Frontend
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // addBtn
+            // 
+            this.addBtn.Location = new System.Drawing.Point(579, 189);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(75, 23);
+            this.addBtn.TabIndex = 6;
+            this.addBtn.Text = "Add";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // maxTkn
+            // 
+            this.maxTkn.AutoSize = true;
+            this.maxTkn.Location = new System.Drawing.Point(418, 342);
+            this.maxTkn.Name = "maxTkn";
+            this.maxTkn.Size = new System.Drawing.Size(66, 13);
+            this.maxTkn.TabIndex = 7;
+            this.maxTkn.Text = "Max Tokens";
+            // 
+            // titleL
+            // 
+            this.titleL.AutoSize = true;
+            this.titleL.Location = new System.Drawing.Point(-4, 70);
+            this.titleL.Name = "titleL";
+            this.titleL.Size = new System.Drawing.Size(80, 13);
+            this.titleL.TabIndex = 8;
+            this.titleL.Text = "Challenge Title:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Description:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 322);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Tokens:";
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.titleL);
+            this.Controls.Add(this.maxTkn);
+            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tokenTb);
+            this.Controls.Add(this.descriptionTb);
+            this.Controls.Add(this.titleTb);
             this.Name = "Add";
             this.Text = "Add";
             this.ResumeLayout(false);
@@ -102,11 +158,16 @@ namespace Frontend
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox titleTb;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox descriptionTb;
+        private System.Windows.Forms.TextBox tokenTb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Label maxTkn;
+        private System.Windows.Forms.Label titleL;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

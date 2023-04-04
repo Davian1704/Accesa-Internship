@@ -29,45 +29,47 @@ namespace Frontend
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.completeBtn = new System.Windows.Forms.Button();
+            this.descriptionTb = new System.Windows.Forms.TextBox();
+            this.titleTb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // completeBtn
             // 
-            this.button1.Location = new System.Drawing.Point(21, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.completeBtn.Location = new System.Drawing.Point(349, 381);
+            this.completeBtn.Name = "completeBtn";
+            this.completeBtn.Size = new System.Drawing.Size(84, 23);
+            this.completeBtn.TabIndex = 5;
+            this.completeBtn.Text = "Completed";
+            this.completeBtn.UseVisualStyleBackColor = true;
+            this.completeBtn.Click += new System.EventHandler(this.completeBtn_Click);
             // 
-            // textBox2
+            // descriptionTb
             // 
-            this.textBox2.Location = new System.Drawing.Point(21, 98);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(296, 215);
-            this.textBox2.TabIndex = 4;
+            this.descriptionTb.Location = new System.Drawing.Point(235, 108);
+            this.descriptionTb.Multiline = true;
+            this.descriptionTb.Name = "descriptionTb";
+            this.descriptionTb.Size = new System.Drawing.Size(296, 215);
+            this.descriptionTb.TabIndex = 4;
             // 
-            // textBox1
+            // titleTb
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 20);
-            this.textBox1.TabIndex = 3;
+            this.titleTb.Location = new System.Drawing.Point(235, 37);
+            this.titleTb.Name = "titleTb";
+            this.titleTb.Size = new System.Drawing.Size(296, 20);
+            this.titleTb.TabIndex = 3;
             // 
             // Challenge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.completeBtn);
+            this.Controls.Add(this.descriptionTb);
+            this.Controls.Add(this.titleTb);
             this.Name = "Challenge";
             this.Text = "Challenge";
+            this.Load += new System.EventHandler(this.Challenge_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,8 +77,8 @@ namespace Frontend
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button completeBtn;
+        private System.Windows.Forms.TextBox descriptionTb;
+        private System.Windows.Forms.TextBox titleTb;
     }
 }

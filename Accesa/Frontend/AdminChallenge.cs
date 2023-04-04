@@ -11,9 +11,11 @@ using System.Windows.Forms;
 namespace Frontend
 {
     public partial class AdminChallenge : Form
-    {
-        public AdminChallenge()
-        {
+    {   int ChallengeId, CreatorId;
+        public AdminChallenge(int ChallengeId, int CreatorId)
+        {   //only for information
+            this.ChallengeId = ChallengeId;
+            this.CreatorId = CreatorId;
             InitializeComponent();
         }
     }
